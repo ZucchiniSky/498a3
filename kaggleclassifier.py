@@ -27,16 +27,16 @@ def trainNaiveBayes(files):
     tokensFalse = set()
     for filename in files:
         index = 3
-        tokenSet = processedFiles[filename]
+        tokens = processedFiles[filename]
         if fileIsJoke(filename):
             index = 2
             bayesData[0] += 1
-            for token in tokenSet:
+            for token in set(tokens):
                 tokensTrue.add(token)
         else:
-            for token in tokenSet:
+            for token in set(tokens):
                 tokensFalse.add(token)
-        for token in tokenSet:
+        for token in tokens:
             if bayesData[index].get(token) is None:
                 bayesData[index][token] = 0
             bayesData[index][token] += 1
@@ -47,7 +47,6 @@ def calcTokenProbability(index, classnum, token, joke):
     tokenCount = 0
     if index.get(token) is not None:
         tokenCount = index[token]
-    vocab = 0
     if joke:
         vocab = vocabTrue
     else:
@@ -65,7 +64,7 @@ def calcProbability(index, classnum, docnum, tokens, joke):
 def testNaiveBayes(file):
     global bayesData
     global processedFiles
-    tokenSet = processedFiles[file]
+    tokenSet = set(processedFiles[file])
     jokeProb = calcProbability(bayesData[2], bayesData[0], bayesData[1], tokenSet, True)
     mixProb = calcProbability(bayesData[3], bayesData[1] - bayesData[0], bayesData[1], tokenSet, False)
     if jokeProb > mixProb:
@@ -100,11 +99,11 @@ def main(args, rstop, stem):
     preprocess.generateStopwords()
     for filename in trainingFiles:
         filein = open(filename)
-        processedFiles[filename] = set(preprocess.processText(filein.read(), rstop, stem))
+        processedFiles[filename] = preprocess.processText(filein.read(), rstop, stem)
         filein.close()
     for filename in testFiles:
         filein = open(filename)
-        processedFiles[filename] = set(preprocess.processText(filein.read(), rstop, stem))
+        processedFiles[filename] = preprocess.processText(filein.read(), rstop, stem)
         filein.close()
     trainNaiveBayes(trainingFiles)
     print "File,Class"
