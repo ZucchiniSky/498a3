@@ -77,7 +77,7 @@ def fileIsTruth(filename):
     exit()
 
 def tokenSort(x, y):
-    return y[1] - x[1]
+    return int(y[1] > x[1])
 
 def main(args, rstop, stem, output):
     global processedFiles
