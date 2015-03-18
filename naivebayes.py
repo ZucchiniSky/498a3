@@ -33,7 +33,10 @@ def calcProbability(index, classnum, docnum, tokens):
     global vocab
     prob = float(classnum) / docnum
     for token in tokens:
-        prob *= float(index[token] + 1) / float(classnum + vocab)
+        tokenCount = 0
+        if index.get(token) is not None:
+            tokenCount = index[token]
+        prob *= float(tokenCount + 1) / float(classnum + vocab)
     return prob
 
 def testNaiveBayes(file):
