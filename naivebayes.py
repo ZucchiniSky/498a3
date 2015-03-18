@@ -55,6 +55,7 @@ def fileIsTruth(filename):
         print filename + " is truth"
         return True
     if re.match(".*lie", filename):
+        print filename + " is lie"
         return False
     print "could not determine truth/lie"
     exit()
