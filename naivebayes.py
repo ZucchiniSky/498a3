@@ -95,6 +95,7 @@ def main(args, rstop, stem, output):
         print "incorrect command line arguments"
     folder = args[1]
     files = [folder + filename for filename in listdir(folder) if isfile(join(folder, filename))]
+    preprocess.generateStopwords()
     for filename in files:
         filein = open(filename)
         processedFiles[filename] = set(preprocess.processText(filein.read(), rstop, stem))
