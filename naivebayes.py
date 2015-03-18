@@ -89,7 +89,7 @@ def main(args, rstop, stem):
         trainNaiveBayes([file for file in files if file != filename])
         answer = testNaiveBayes(filename)
         result = "true"
-        if not fileIsTruth(filename):
+        if not answer:
             result = "lie"
         if (not fileIsTruth(filename) and not answer) or (fileIsTruth(filename) and answer):
             correct += 1
