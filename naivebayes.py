@@ -21,7 +21,7 @@ def trainNaiveBayes(files):
         if fileIsTruth(filename):
             index = 2
             bayesData[0] += 1
-        tokenSet = processedFiles[files]
+        tokenSet = processedFiles[filename]
         for token in tokenSet:
             if bayesData[index].get(token) is None:
                 bayesData[index][token] = 0
