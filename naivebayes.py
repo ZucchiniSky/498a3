@@ -56,6 +56,8 @@ def fileIsTruth(filename):
         return True
     if re.match(".*lie", filename):
         return False
+    print "could not determine truth/lie"
+    exit()
 
 def main(args, rstop, stem):
     global processedFiles
