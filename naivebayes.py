@@ -51,13 +51,13 @@ def testNaiveBayes(file):
         return False
 
 def fileIsTruth(filename):
-    if re.match(".*truth", filename):
+    if re.match(".*true", filename):
         print filename + " is truth"
         return True
     if re.match(".*lie", filename):
         print filename + " is lie"
         return False
-    print "could not determine truth/lie"
+    print "could not determine true/lie"
     exit()
 
 def main(args, rstop, stem):
@@ -75,7 +75,7 @@ def main(args, rstop, stem):
     for filename in files:
         trainNaiveBayes([file for file in files if file != filename])
         answer = testNaiveBayes(filename)
-        result = "truth"
+        result = "true"
         if not fileIsTruth(filename):
             result = "lie"
         if (not fileIsTruth(filename) and not answer) or (fileIsTruth(filename) and answer):
