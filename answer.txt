@@ -1,0 +1,31 @@
+#SCOTT BOMMARITO
+#uniqname: zucchini
+#ASSIGNMENT 3
+#EECS 498 WN 2015
+
+accuracy without removing stopwords and without stemming:
+66.8%
+accuracy without stemming but with removing stopwords:
+66.3%
+
+
+most likely truth word no 1: ['is', 0.05931656995486783]
+most likely truth word no 2: ['and', 0.058671824629271438]
+most likely truth word no 3: ['i', 0.056737588652482268]
+most likely truth word no 4: ['we', 0.052869116698903935]
+most likely truth word no 5: ['my', 0.052224371373307543]
+most likely truth word no 6: ['to', 0.051579626047711151]
+most likely truth word no 7: ['the', 0.050290135396518373]
+most likely truth word no 8: ['a', 0.049645390070921988]
+most likely truth word no 9: ['best', 0.048355899419729204]
+most likely truth word no 10: ['friend', 0.048355899419729204]
+most likely lie word no 0: ['is', 0.063616869192280198]
+most likely lie word no 1: ['and', 0.062902072909220869]
+most likely lie word no 2: ['to', 0.061472480343102216]
+most likely lie word no 3: ['i', 0.055754110078627593]
+most likely lie word no 4: ['a', 0.052180128663330952]
+most likely lie word no 5: ['the', 0.050035739814152963]
+most likely lie word no 6: ['always', 0.041458184417441028]
+most likely lie word no 7: ['of', 0.040743388134381699]
+most likely lie word no 8: ['my', 0.038598999285203717]
+most likely lie word no 9: ['she', 0.038598999285203717]
