@@ -133,4 +133,4 @@ def main(args, rstop, stem, output):
             print "most likely lie word no " + str(i) + ": " + str(lieList[i])
 
 if __name__ == '__main__':
-    main(sys.argv, False, True, False)
+    main(sys.argv, True, True, False)
