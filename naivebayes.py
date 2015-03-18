@@ -27,16 +27,16 @@ def trainNaiveBayes(files):
     tokensFalse = set()
     for filename in files:
         index = 3
-        tokens = processedFiles[filename]
+        tokenSet = processedFiles[filename]
         if fileIsTruth(filename):
             index = 2
             bayesData[0] += 1
-            for token in tokens:
+            for token in tokenSet:
                 tokensTrue.add(token)
         else:
-            for token in tokens:
+            for token in tokenSet:
                 tokensFalse.add(token)
-        for token in tokens:
+        for token in tokenSet:
             if bayesData[index].get(token) is None:
                 bayesData[index][token] = 0
             bayesData[index][token] += 1
@@ -64,7 +64,7 @@ def calcProbability(index, classnum, docnum, tokens, truth):
 def testNaiveBayes(file):
     global bayesData
     global processedFiles
-    tokenSet = set(processedFiles[file])
+    tokenSet = processedFiles[file]
     truthProb = calcProbability(bayesData[2], bayesData[0], bayesData[1], tokenSet, True)
     lieProb = calcProbability(bayesData[3], bayesData[1] - bayesData[0], bayesData[1], tokenSet, False)
     if truthProb > lieProb:
@@ -97,7 +97,7 @@ def main(args, rstop, stem, output):
     preprocess.generateStopwords()
     for filename in files:
         filein = open(filename)
-        processedFiles[filename] = preprocess.processText(filein.read(), rstop, stem)
+        processedFiles[filename] = set(preprocess.processText(filein.read(), rstop, stem))
         filein.close()
     correct = 0
     total = 0
