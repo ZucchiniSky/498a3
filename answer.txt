@@ -3,11 +3,10 @@
 #ASSIGNMENT 3
 #EECS 498 WN 2015
 
-accuracy without removing stopwords and without stemming:
-66.8%
-accuracy without stemming but with removing stopwords:
-66.3%
-
+accuracy without removing stopwords and without stemming: 66.8%
+accuracy without stemming but with removing stopwords: 66.3%
+accuracy without removing stopwords but with stemming: 67.3%
+accuracy with removing stopwords and stemming: 67.3%
 
 most likely truth word no 1: ['is', 0.05931656995486783]
 most likely truth word no 2: ['and', 0.058671824629271438]

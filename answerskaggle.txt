@@ -1,0 +1,10 @@
+#SCOTT BOMMARITO
+#uniqname: zucchini
+#ASSIGNMENT 3
+#EECS 498 WN 2015
+
+I used Naive Bayes classification for my Kaggle classification. It trains off the given training data and then used its data to determine the classification of the test data. I did not stem or remove stopwords in my initial attempt and scored 70.83%.
+
+Given my results for the truth/lie detection in part one of the assignment, I thought that using Naive Bayes and stemming the words would increase detection probability. Oddly, however, I received worse results with stemming, and only scored 70.27%.
+
+After testing out Naive Bayes with stemming I decided to revert back to using Naive Bayes without stemming, which scored 70.83%.
