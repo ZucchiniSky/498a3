@@ -38,20 +38,23 @@ def trainNaiveBayes(files):
     vocabTrue = len(tokensTrue)
     vocabFalse = len(tokensFalse)
 
+def calcTokenProbability(index, classnum, token, truth):
+    tokenCount = 0
+    if index.get(token) is not None:
+        tokenCount = index[token]
+    vocab = 0
+    if truth:
+        vocab = vocabTrue
+    else:
+        vocab = vocabFalse
+    return float(tokenCount + 1) / float(classnum + vocab)
+
 def calcProbability(index, classnum, docnum, tokens, truth):
     global vocabTrue
     global vocabFalse
     prob = float(classnum) / docnum
     for token in tokens:
-        tokenCount = 0
-        if index.get(token) is not None:
-            tokenCount = index[token]
-        vocab = 0
-        if truth:
-            vocab = vocabTrue
-        else:
-            vocab = vocabFalse
-        prob *= float(tokenCount + 1) / float(classnum + vocab)
+        prob *= calcTokenProbability(index, classnum, token, truth)
     return prob
 
 def testNaiveBayes(file):
@@ -73,8 +76,12 @@ def fileIsTruth(filename):
     print "could not determine true/lie"
     exit()
 
-def main(args, rstop, stem):
+def tokenSort(x, y):
+    return y[1] - x[1]
+
+def main(args, rstop, stem, output):
     global processedFiles
+    global bayesData
     if len(args) != 2:
         print "incorrect command line arguments"
     folder = args[1]
@@ -96,6 +103,24 @@ def main(args, rstop, stem):
         total += 1
         print filename + " " + result
     print str(correct) + " / " + str(total) + " = " + str(float(correct)/float(total))
+    if output:
+        trainNaiveBayes(files)
+        truthList = []
+        lieList = []
+        tokens = set()
+        for key in bayesData[2]:
+            tokens.add(key)
+        for key in bayesData[3]:
+            tokens.add(key)
+        for token in tokens:
+            truthList.append([token, calcTokenProbability(bayesData[2], bayesData[0], token, True)])
+            lieList.append([token, calcTokenProbability(bayesData[3], bayesData[1] - bayesData[0], token, False)])
+        truthList.sort(tokenSort)
+        lieList.sort(tokenSort)
+        for i in range(0, 10):
+            print "truth " + str(i) + ": " + str(truthList[i])
+        for i in range(0, 10):
+            print "lie " + str(i) + ": " + str(lieList[i])
 
 if __name__ == '__main__':
-    main(sys.argv, False, False)
+    main(sys.argv, False, False, False)
