@@ -51,10 +51,10 @@ def testNaiveBayes(file):
         return False
 
 def fileIsTruth(filename):
-    if re.match("truth", filename):
+    if re.match(".*truth", filename):
         print filename + " is true"
         return True
-    if re.match("lie", filename):
+    if re.match(".*lie", filename):
         print filename + " is lie"
         return False
 
