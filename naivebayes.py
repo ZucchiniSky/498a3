@@ -1,3 +1,8 @@
+#SCOTT BOMMARITO
+#uniqname: zucchini
+#ASSIGNMENT 3
+#EECS 498 WN 2015
+
 import sys
 import re
 import preprocess
@@ -127,4 +132,4 @@ def main(args, rstop, stem, output):
             print "most likely lie word no " + str(i) + ": " + str(lieList[i])
 
 if __name__ == '__main__':
-    main(sys.argv, False, False, True)
+    main(sys.argv, True, False, True)
