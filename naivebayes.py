@@ -52,10 +52,8 @@ def testNaiveBayes(file):
 
 def fileIsTruth(filename):
     if re.match(".*true", filename):
-        print filename + " is truth"
         return True
     if re.match(".*lie", filename):
-        print filename + " is lie"
         return False
     print "could not determine true/lie"
     exit()
@@ -82,7 +80,7 @@ def main(args, rstop, stem):
             correct += 1
         total += 1
         print filename + " " + result
-    print str(correct) + " / " + str(total) + " = " + str(correct/total)
+    print str(correct) + " / " + str(total) + " = " + str(float(correct)/float(total))
 
 if __name__ == '__main__':
     main(sys.argv, False, False)
