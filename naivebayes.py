@@ -122,9 +122,9 @@ def main(args, rstop, stem, output):
         truthList.sort(tokenSort)
         lieList.sort(tokenSort)
         for i in range(0, 10):
-            print "truth " + str(i) + ": " + str(truthList[i])
+            print "most likely truth word no " + str(i+1) + ": " + str(truthList[i])
         for i in range(0, 10):
-            print "lie " + str(i) + ": " + str(lieList[i])
+            print "most likely lie word no " + str(i) + ": " + str(lieList[i])
 
 if __name__ == '__main__':
     main(sys.argv, False, False, True)
