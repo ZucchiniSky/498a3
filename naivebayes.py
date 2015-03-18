@@ -26,7 +26,7 @@ def trainNaiveBayes(files):
             if bayesData[index].get(token) is None:
                 bayesData[index][token] = 0
             bayesData[index][token] += 1
-            set.add(token)
+            tokens.add(token)
     vocab = len(tokens)
 
 def calcProbability(index, classnum, docnum, tokens):
