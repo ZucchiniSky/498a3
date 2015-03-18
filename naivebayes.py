@@ -123,4 +123,4 @@ def main(args, rstop, stem, output):
             print "lie " + str(i) + ": " + str(lieList[i])
 
 if __name__ == '__main__':
-    main(sys.argv, False, False, False)
+    main(sys.argv, False, False, True)
