@@ -5,6 +5,7 @@
 
 import sys
 import re
+import math
 import preprocess
 from os import listdir
 from os.path import isfile, join
@@ -51,14 +52,14 @@ def calcTokenProbability(index, classnum, token, truth):
         vocab = vocabTrue
     else:
         vocab = vocabFalse
-    return float(tokenCount + 1) / float(classnum + vocab)
+    return math.log(float(tokenCount + 1) / float(classnum + vocab))
 
 def calcProbability(index, classnum, docnum, tokens, truth):
     global vocabTrue
     global vocabFalse
-    prob = float(classnum) / docnum
+    prob = math.log(float(classnum) / docnum)
     for token in tokens:
-        prob *= calcTokenProbability(index, classnum, token, truth)
+        prob += calcTokenProbability(index, classnum, token, truth)
     return prob
 
 def testNaiveBayes(file):
