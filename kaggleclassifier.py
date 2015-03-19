@@ -92,12 +92,12 @@ def main(args, rstop, stem):
     testFiles = [folderTest + filename for filename in listdir(folderTest) if isfile(join(folderTest, filename))]
     preprocess.generateStopwords()
     for filename in trainingFiles:
-        sys.stderr.write("processing " + filename)
+        sys.stderr.write("processing " + filename + "\n")
         filein = open(filename)
         processedFiles[filename] = set(preprocess.processText(filein.read(), rstop, stem))
         filein.close()
     for filename in testFiles:
-        sys.stderr.write("processing " + filename)
+        sys.stderr.write("processing " + filename + "\n")
         filein = open(filename)
         processedFiles[filename] = set(preprocess.processText(filein.read(), rstop, stem))
         filein.close()
