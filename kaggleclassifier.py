@@ -92,16 +92,19 @@ def main(args, rstop, stem):
     testFiles = [folderTest + filename for filename in listdir(folderTest) if isfile(join(folderTest, filename))]
     preprocess.generateStopwords()
     for filename in trainingFiles:
+        sys.stderr.write("processing " + filename)
         filein = open(filename)
         processedFiles[filename] = set(preprocess.processText(filein.read(), rstop, stem))
         filein.close()
     for filename in testFiles:
+        sys.stderr.write("processing " + filename)
         filein = open(filename)
         processedFiles[filename] = set(preprocess.processText(filein.read(), rstop, stem))
         filein.close()
     trainNaiveBayes(trainingFiles)
     print "File,Class"
     for filename in testFiles:
+        sys.stderr.write(filename)
         answer = testNaiveBayes(filename)
         result = "joke"
         if not answer:
