@@ -104,7 +104,7 @@ def main(args, rstop, stem):
     trainNaiveBayes(trainingFiles)
     print "File,Class"
     for filename in testFiles:
-        sys.stderr.write(filename)
+        sys.stderr.write("testing " + filename + "\n")
         answer = testNaiveBayes(filename)
         result = "joke"
         if not answer:
