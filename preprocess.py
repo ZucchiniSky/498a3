@@ -31,11 +31,10 @@ def wordIsValid(word):
 
 #returns list of tokens in a SGML-less text
 def tokenizeText(text):
-    dates = re.findall(dateReg, text)
+    """dates = re.findall(dateReg, text)
     text = " ".join(re.split(dateReg, text))
     numbers = re.findall(numReg, text)
-    text = " ".join(re.split("[0-9]", text))
-    #tokens = re.split("[\s,;!?()/]*", text)
+    text = " ".join(re.split("[0-9]", text))"""
     tokens = re.split('\n|\s[.]\s|\s[-]\s|\s|,', text)
     newTokens = []
     for puretoken in tokens:
@@ -71,26 +70,11 @@ def tokenizeText(text):
             newTokens.append(token.strip("."))
     tokens = newTokens
     tokens = filter(wordIsValid, tokens)
-    for date in dates:
+    """for date in dates:
         tokens.append(date[0])
     for number in numbers:
-        tokens.append(number[0])
+        tokens.append(number[0])"""
     return tokens
-
-"""
-def tokenizeText(str):
-    str = re.sub("it's", "it is", str)
-    str = re.sub("I'm", "I am", str)
-    str = re.sub("can't", "can not", str)
-    str = re.sub("let's", "let us", str)
-    str = re.sub("they're", "they are", str)
-    str = re.sub("we're", "we are", str)
-    str = re.sub("haven't", "have not", str)
-    str = re.sub("'", " '", str)
-    str = re.sub('[.]', '', str)
-    fix = re.split('\n|\s[.]\s|\s[-]\s|\s|,', str)
-    fix = filter(None, fix)
-    return fix"""
 
 #computes first - second
 def listDiff(first, second):
