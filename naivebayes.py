@@ -125,7 +125,7 @@ def main(args, rstop, stem, output):
             print "most likely truth word no " + str(i+1) + ": " + str(truthList[i])
         for i in range(0, 10):
             print "most likely lie word no " + str(i) + ": " + str(lieList[i])
-        """prints all the tokens for token identification
+        """prints all the tokens for token checking
         tokenList = list(tokens)
         tokenList.sort()
         dict = {}
@@ -141,4 +141,4 @@ def main(args, rstop, stem, output):
 
 
 if __name__ == '__main__':
-    main(sys.argv, False, False, True)
+    main(sys.argv, True, False, False)
