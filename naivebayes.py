@@ -126,7 +126,12 @@ def main(args, rstop, stem, output):
         for i in range(0, 10):
             print "most likely lie word no " + str(i) + ": " + str(lieList[i])
         for token in tokens:
-            print token + ": " + str(bayesData[2][token]+bayesData[3][token])
+            sum = 0
+            if bayesData[2].get(token) is not None:
+                sum += bayesData[2][token]
+            if bayesData[3].get(token) is not None:
+                sum += bayesData[3][token]
+            print token + ": " + str(sum)
 
 
 if __name__ == '__main__':
