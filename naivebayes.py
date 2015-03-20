@@ -141,4 +141,4 @@ def main(args, rstop, stem, output):
 
 
 if __name__ == '__main__':
-    main(sys.argv, True, False, False)
+    main(sys.argv, False, True, False)
