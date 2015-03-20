@@ -125,6 +125,7 @@ def main(args, rstop, stem, output):
             print "most likely truth word no " + str(i+1) + ": " + str(truthList[i])
         for i in range(0, 10):
             print "most likely lie word no " + str(i) + ": " + str(lieList[i])
+        """prints all the tokens for token identification
         tokenList = list(tokens)
         tokenList.sort()
         dict = {}
@@ -136,8 +137,8 @@ def main(args, rstop, stem, output):
                 sum += bayesData[3][token]
             dict[token] = sum
         print str(len(dict))
-        print dict
+        print dict"""
 
 
 if __name__ == '__main__':
-    main(sys.argv, False, True, True)
+    main(sys.argv, False, False, True)
