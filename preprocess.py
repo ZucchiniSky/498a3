@@ -36,7 +36,7 @@ def tokenizeText(text):
     numbers = re.findall(numReg, text)
     text = " ".join(re.split("[0-9]", text))"""
     text = re.sub("\\\\u2019", "'", text)
-    tokens = re.split('\n|\s[.]\s|\s[-]\s|\s|,|/', text)
+    tokens = re.split('\n|\s[.]\s|\s[-]\s|\s|,|/|[.][.]+', text)
     newTokens = []
     for puretoken in tokens:
         token = puretoken.lower()
@@ -68,7 +68,7 @@ def tokenizeText(text):
             newTokens.append("will")
             newTokens.append("".join(re.split("'ll$", token)))
         else:
-            newTokens.append(token.strip(".?"))
+            newTokens.append(token.strip(".?!()\"'"))
     tokens = newTokens
     tokens = filter(wordIsValid, tokens)
     """for date in dates:
