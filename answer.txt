@@ -3,28 +3,28 @@
 #ASSIGNMENT 3
 #EECS 498 WN 2015
 
-accuracy without removing stopwords and without stemming: 67.9%
-accuracy without stemming but with removing stopwords: 66.3%
-accuracy without removing stopwords but with stemming: 67.3%
+accuracy: 75%
+accuracy with removing stopwords: 72.4%
+accuracy with stemming: 74%
 accuracy with removing stopwords and stemming: 67.3%
 
-most likely truth word no 1: ['is', 0.05931656995486783]
-most likely truth word no 2: ['and', 0.058671824629271438]
-most likely truth word no 3: ['i', 0.056737588652482268]
-most likely truth word no 4: ['we', 0.052869116698903935]
-most likely truth word no 5: ['my', 0.052224371373307543]
-most likely truth word no 6: ['to', 0.051579626047711151]
-most likely truth word no 7: ['the', 0.050290135396518373]
-most likely truth word no 8: ['a', 0.049645390070921988]
-most likely truth word no 9: ['best', 0.048355899419729204]
-most likely truth word no 10: ['friend', 0.048355899419729204]
-most likely lie word no 0: ['is', 0.063616869192280198]
-most likely lie word no 1: ['and', 0.062902072909220869]
-most likely lie word no 2: ['to', 0.061472480343102216]
-most likely lie word no 3: ['i', 0.055754110078627593]
-most likely lie word no 4: ['a', 0.052180128663330952]
-most likely lie word no 5: ['the', 0.050035739814152963]
-most likely lie word no 6: ['always', 0.041458184417441028]
-most likely lie word no 7: ['of', 0.040743388134381699]
-most likely lie word no 8: ['my', 0.038598999285203717]
-most likely lie word no 9: ['she', 0.038598999285203717]
+most likely truth word no 1: ['and', -3.2685416829397247]
+most likely truth word no 2: ['i', -3.3234335105072419]
+most likely truth word no 3: ['we', -3.4754965069040162]
+most likely truth word no 4: ['is', -3.6247928082664762]
+most likely truth word no 5: ['to', -3.7462903613272753]
+most likely truth word no 6: ['she', -3.795319788567594]
+most likely truth word no 7: ['the', -3.8468775982324441]
+most likely truth word no 8: ['my', -3.8791384604506653]
+most likely truth word no 9: ['me', -3.9706308008753313]
+most likely truth word no 10: ['a', -3.9948744124853239]
+most likely lie word no 0: ['is', -3.2367229925515906]
+most likely lie word no 1: ['and', -3.3665711397598166]
+most likely lie word no 2: ['she', -3.400762504508096]
+most likely lie word no 3: ['to', -3.4361644315590119]
+most likely lie word no 4: ['i', -3.5761516245264056]
+most likely lie word no 5: ['a', -3.782596008082983]
+most likely lie word no 6: ['he', -3.8552351917229548]
+most likely lie word no 7: ['the', -3.9115881282740865]
+most likely lie word no 8: ['me', -4.21386900014702]
+most likely lie word no 9: ['her', -4.2538743347607193]
