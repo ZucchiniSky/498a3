@@ -65,7 +65,7 @@ def calcProbability(index, classnum, docnum, tokens, truth):
 def testNaiveBayes(file):
     global bayesData
     global processedFiles
-    tokenSet = processedFiles[file]
+    tokenSet = set(processedFiles[file])
     truthProb = calcProbability(bayesData[2], bayesData[0], bayesData[1], tokenSet, True)
     lieProb = calcProbability(bayesData[3], bayesData[1] - bayesData[0], bayesData[1], tokenSet, False)
     if truthProb > lieProb:
@@ -98,7 +98,7 @@ def main(args, rstop, stem, output):
     preprocess.generateStopwords()
     for filename in files:
         filein = open(filename)
-        processedFiles[filename] = set(preprocess.processText(filein.read(), rstop, stem))
+        processedFiles[filename] = preprocess.processText(filein.read(), rstop, stem)
         filein.close()
     correct = 0
     total = 0
