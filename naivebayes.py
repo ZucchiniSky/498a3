@@ -37,6 +37,8 @@ def trainNaiveBayes(files):
             if bayesData[index].get(token) is None:
                 bayesData[index][token] = 0
             bayesData[index][token] += 1
+    print bayesData[2]
+    print bayesData[3]
 
 def calcTokenProbability(index, classnum, token, truth):
     tokenCount = 0
@@ -127,4 +129,4 @@ def main(args, rstop, stem, output):
             print "most likely lie word no " + str(i) + ": " + str(lieList[i])
 
 if __name__ == '__main__':
-    main(sys.argv, False, True, True)
+    main(sys.argv, False, False, True)
