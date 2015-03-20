@@ -24,19 +24,17 @@ def trainNaiveBayes(files):
     bayesData[1] = len(files)
     vocabTrue = 0
     vocabFalse = 0
-    tokensTrue = set()
-    tokensFalse = set()
+    tokensTrue = 0
+    tokensFalse = 0
     for filename in files:
         index = 3
         tokenSet = processedFiles[filename]
         if fileIsTruth(filename):
             index = 2
             bayesData[0] += 1
-            for token in tokenSet:
-                tokensTrue.add(token)
+            tokensTrue += len(tokenSet)
         else:
-            for token in tokenSet:
-                tokensFalse.add(token)
+            tokensFalse += len(tokenSet)
         for token in tokenSet:
             if bayesData[index].get(token) is None:
                 bayesData[index][token] = 0
