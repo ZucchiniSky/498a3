@@ -135,6 +135,7 @@ def main(args, rstop, stem, output):
             if bayesData[3].get(token) is not None:
                 sum += bayesData[3][token]
             dict[token] = sum
+        print str(len(dict))
         print dict
 
 

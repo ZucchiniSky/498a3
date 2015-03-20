@@ -68,7 +68,7 @@ def tokenizeText(text):
             newTokens.append("will")
             newTokens.append("".join(re.split("'ll$", token)))
         else:
-            newTokens.append(token.strip(".?!()\"'"))
+            newTokens.append(token.strip(".?!"))
     tokens = newTokens
     tokens = filter(wordIsValid, tokens)
     """for date in dates:
