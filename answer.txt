@@ -6,7 +6,7 @@
 accuracy: 75%
 accuracy with removing stopwords: 72.4%
 accuracy with stemming: 74%
-accuracy with removing stopwords and stemming: 67.3%
+accuracy with removing stopwords and stemming: 70%
 
 most likely truth word no 1: ['and', -3.2685416829397247]
 most likely truth word no 2: ['i', -3.3234335105072419]

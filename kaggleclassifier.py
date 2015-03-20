@@ -106,4 +106,4 @@ def main(args, rstop, stem):
         print filename[len(folderTest):] + "," + result
 
 if __name__ == '__main__':
-    main(sys.argv, False, False)
+    main(sys.argv, False, True)
