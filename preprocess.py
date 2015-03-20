@@ -36,7 +36,7 @@ def tokenizeText(text):
     numbers = re.findall(numReg, text)
     text = " ".join(re.split("[0-9]", text))"""
     text = re.sub("\\\\u2019", "'", text)
-    tokens = re.split("\n|\s[.]\s|\s[-]\s|\s|,|/|[.][.]+", text)
+    tokens = re.split("\n|[.]|\s[-]\s|\s|,|/|[.][.]+", text)
     newTokens = []
     for puretoken in tokens:
         token = puretoken.lower()
