@@ -24,25 +24,19 @@ def trainNaiveBayes(files):
     bayesData[1] = len(files)
     vocabTrue = 0
     vocabFalse = 0
-    tokensTrue = set()
-    tokensFalse = set()
     for filename in files:
         index = 3
-        tokenSet = processedFiles[filename]
+        tokens = processedFiles[filename]
         if fileIsJoke(filename):
             index = 2
             bayesData[0] += 1
-            for token in tokenSet:
-                tokensTrue.add(token)
+            vocabTrue += len(tokens)
         else:
-            for token in tokenSet:
-                tokensFalse.add(token)
-        for token in tokenSet:
+            vocabFalse += len(tokens)
+        for token in tokens:
             if bayesData[index].get(token) is None:
                 bayesData[index][token] = 0
             bayesData[index][token] += 1
-    vocabTrue = len(tokensTrue)
-    vocabFalse = len(tokensFalse)
 
 def calcTokenProbability(index, classnum, token, joke):
     tokenCount = 0
@@ -65,7 +59,7 @@ def calcProbability(index, classnum, docnum, tokens, joke):
 def testNaiveBayes(file):
     global bayesData
     global processedFiles
-    tokenSet = processedFiles[file]
+    tokenSet = set(processedFiles[file])
     jokeProb = calcProbability(bayesData[2], bayesData[0], bayesData[1], tokenSet, True)
     mixProb = calcProbability(bayesData[3], bayesData[1] - bayesData[0], bayesData[1], tokenSet, False)
     if jokeProb > mixProb:
@@ -94,12 +88,12 @@ def main(args, rstop, stem):
     for filename in trainingFiles:
         sys.stderr.write("processing " + filename + "\n")
         filein = open(filename)
-        processedFiles[filename] = set(preprocess.processText(filein.read(), rstop, stem))
+        processedFiles[filename] = preprocess.processText(filein.read(), rstop, stem)
         filein.close()
     for filename in testFiles:
         sys.stderr.write("processing " + filename + "\n")
         filein = open(filename)
-        processedFiles[filename] = set(preprocess.processText(filein.read(), rstop, stem))
+        processedFiles[filename] = preprocess.processText(filein.read(), rstop, stem)
         filein.close()
     trainNaiveBayes(trainingFiles)
     print "File,Class"

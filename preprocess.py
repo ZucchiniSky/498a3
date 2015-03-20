@@ -31,10 +31,6 @@ def wordIsValid(word):
 
 #returns list of tokens in a SGML-less text
 def tokenizeText(text):
-    """dates = re.findall(dateReg, text)
-    text = " ".join(re.split(dateReg, text))
-    numbers = re.findall(numReg, text)
-    text = " ".join(re.split("[0-9]", text))"""
     text = re.sub("\\\\u2019", "'", text)
     tokens = re.split("[\s.,-?!()/\"]", text)
     newTokens = []
